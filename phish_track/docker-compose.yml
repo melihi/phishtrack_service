@@ -1,0 +1,30 @@
+version: "3"
+
+
+services:
+  fastapi-service:
+    build: ./
+    volumes:
+      - ./phish_track:/usr/src/app
+    ports:
+      - "80:80"
+    networks:
+        - mynetwork
+     
+  phishtrack-psql:
+    image: postgres:alpine
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: phishtrack_db
+    ports:
+      - "5433:5432"
+    volumes:
+      - ./db:/var/lib/postgresql/data
+    networks:
+        - mynetwork
+
+networks:
+  mynetwork:
+    driver: bridge
+    external: true

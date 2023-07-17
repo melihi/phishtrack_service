@@ -1,0 +1,11 @@
+version: "3"
+
+
+services:
+  fastapi-service:
+    build: ./phish_track
+    volumes:
+      - ./phish_track:/usr/src/app
+    ports:
+      - "80:80"
+    

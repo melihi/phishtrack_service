@@ -1,0 +1,29 @@
+
+Phishing feed'i paylaşan kaynakların takip edilmesi. Bu tarafta kaynak araştırması sizin başlangıç göreviniz. Bulduğunuz kaynakların takip edilerek database'inizde tutulması gerekmektedir. Bu haftaki challange'ınızda kullanıcağınız teknolojiler:
+
+Poetry (https://python-poetry.org/docs/)
+Docker compose
+FastAPI (https://fastapi.tiangolo.com/tr/)
+ORM (https://docs.sqlalchemy.org/en/20/orm/)
+PostgreSQL
+No While True 
+
+dynaconf
+https://github.com/orgs/python-poetry/discussions/1135
+
+# postgresql
+https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-20-04
+docker run --name phishtrack-psql -e POSTGRES_PASSWORD=password -d -p 5432:5432 postgres:alpine
+myuser:password
+create database phishtrack_db;
+docker run 3d84e95ae6f7b15fab896c957cea2f34a7bbee998056f68d5ed3673d95b1bb01
+3d84e95ae6f7
+
+ psql -h localhost -U myuser -d phishtrack_db
+
+public scheme error
+GRANT CREATE ON SCHEMA public TO my_database_user;
+
+select count(*) from phishing;
+delete from phishing ;
+docker exec -it phishtrack-psql bash

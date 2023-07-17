@@ -1,0 +1,15 @@
+version: "3"
+
+
+services:
+  crawl-service:
+    build: ./
+    volumes:
+      - ./crawler/crawler:/usr/src/app
+    networks:
+        - mynetwork
+        
+networks:
+  mynetwork:
+    driver: bridge
+    external: true
