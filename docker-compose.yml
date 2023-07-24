@@ -1,0 +1,31 @@
+version: "3.8"
+
+services:
+  fastapi-service:
+    build: ./
+    command: python3 manage.py --api
+    volumes:
+      - ./:/usr/src/app
+    ports:
+      - "80:8000"
+    depends_on:
+      - phishtrack-psql
+
+  phishtrack-psql:
+    image: postgres:alpine
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: phishtrack_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+
+  crawl-service:
+    build: ./
+    command: python3 manage.py --crawler
+    depends_on:
+      - phishtrack-psql
+    volumes:
+      - ./:/usr/src/app

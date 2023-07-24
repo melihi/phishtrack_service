@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "phish-track"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+packages = [{include = "phish_track"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.100.0"
+sqlalchemy = "^2.0.18"
+psycopg2-binary = "^2.9.6"
+uvicorn = {extras = ["standard"], version = "^0.23.0"}
+dynaconf = "^3.2.0"
+apscheduler = "^3.10.1"
+httpx = "^0.24.1"
+pandas = "^2.0.1"
+click = "^8.1.5"
+ 
+
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
